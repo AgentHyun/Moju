@@ -1,8 +1,18 @@
 
-.card-section{
- display: flex;
- flex-direction: row;
+.orbit-regular {
+    font-family: "Orbit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 
+.card-section{
+
+ font-family: "Orbit", sans-serif;
+}
+.card-header{
+    display: flex;
+    flex-direction: row;
 }
 
 .add-btn{
@@ -19,4 +29,28 @@
 }
 .add-btn:hover{
   color : black;
+}
+.card-list{
+    display : flex;
+    flex-direction: row;
+}
+.card-image{
+    width : 180px;
+    height : 150px;
+    
+}
+
+.input-container {
+    margin: 30px;
+  }
+
+
+/* 모달 전체 스타일 */
+.Modal .ant-modal-content {
+   
+    border-radius: 12px; /* 둥근 모서리 */
+    padding: 20px;
+    width : 500px;
+    height : 700px;
+  
 }
