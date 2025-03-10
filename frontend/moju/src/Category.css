@@ -1,0 +1,22 @@
+
+.card-section{
+ display: flex;
+ flex-direction: row;
+
+}
+
+.add-btn{
+    background-color: rgb(233, 235, 236);
+    margin : 18px;
+}
+.delete-btn{
+    background-color: rgb(233, 235, 236);
+    margin : 18px;
+    margin-left : -10px;
+}
+.delete-btn:hover{
+    color : black;    
+}
+.add-btn:hover{
+  color : black;
+}
