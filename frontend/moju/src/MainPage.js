@@ -47,7 +47,7 @@ function MainPage() {
     const navigate = useNavigate();
     const addCard = () => {
         if (cards.length < 100) {
-            setIsModalVisible(true); // Open the card modal
+            setIsModalVisible(true); 
         } else {
             message.warning("카드는 최대 100개까지 추가할 수 있습니다.");
         }
@@ -126,6 +126,8 @@ function MainPage() {
         setNewProductName('');
         setNewProductQuantity('');
         setIsModalVisible(false);
+
+
     };
     
     const handleCancel = () => {
@@ -341,18 +343,13 @@ function MainPage() {
             >
                 <div className="modal-content">
                     <div className="input-container">
-                        <Select
+                        <Input
                             placeholder="상품 선택"
                             value={newProductName}
                             onChange={setNewProductName}
-                            style={{ width: '500px', height: 40, marginBottom: 15 }}
-                        >
-                            {registeredProducts.map((product, index) => (
-                                <Option key={index} value={product.name}>
-                                    {product.name}
-                                </Option>
-                            ))}
-                        </Select>
+                            style={{ width: '500px', height: 40, marginBottom: 15 }}>
+                    
+                        </Input>
                     </div>
                     <div className="input-container">
                         <Input

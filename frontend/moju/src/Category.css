@@ -1,56 +1,83 @@
-
 .orbit-regular {
     font-family: "Orbit", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
-
-.card-section{
-
- font-family: "Orbit", sans-serif;
 }
-.card-header{
+
+.title{
+    font-size : 30px;
+    margin : 10px;
+}
+.card-section {
+    font-family: "Orbit", sans-serif;
+}
+
+.card-header {
     display: flex;
     flex-direction: row;
+    margin-left : 380px;
 }
 
-.add-btn{
+.add-btn {
     background-color: rgb(233, 235, 236);
-    margin : 18px;
-}
-.delete-btn{
-    background-color: rgb(233, 235, 236);
-    margin : 18px;
-    margin-left : -10px;
-}
-.delete-btn:hover{
-    color : black;    
-}
-.add-btn:hover{
-  color : black;
-}
-.card-list{
-    display : flex;
-    flex-direction: row;
-}
-.card-image{
-    width : 180px;
-    height : 150px;
-    
+    margin: 18px;
 }
 
+.delete-btn {
+    background-color: rgb(233, 235, 236);
+    margin: 18px;
+    margin-left: -10px;
+}
+
+.delete-btn:hover {
+    color: black;    
+}
+
+.add-btn:hover {
+    color: black;
+}
+
+.card-list {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding: 16px;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%; 
+}
+.initial_card{
+    width : 50px;
+    height : 50px;
+}
+.card-item {
+    width: 12%; /* 카드 width를 줄이면서 한 줄에 6개가 보이도록 설정 */
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd; 
+    margin : 10px;
+}
+.card-item:hover {
+    transform: translateY(-5px); /* 마우스를 올리면 살짝 떠오르는 효과 */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* 마우스를 올리면 그림자 강조 */
+    cursor: pointer;
+}
 .input-container {
     margin: 30px;
-  }
+}
 
-
-/* 모달 전체 스타일 */
 .Modal .ant-modal-content {
-   
-    border-radius: 12px; /* 둥근 모서리 */
+    border-radius: 12px;
     padding: 20px;
-    width : 500px;
-    height : 700px;
-  
+    width: 500px;
+    height: 700px;
+}
+
+.selected {
+    border: 2px solid #bbb; /* 선택된 카드의 테두리 색상 */
 }
