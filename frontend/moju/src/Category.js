@@ -65,27 +65,48 @@ function Category() {
         setNewProductCost('');
     };
 
-    const handleOk = () => {
+    const handleOk = async () => {
         if (!newProductName || !newProductQuantity || !newProductCost) {
-            warning();  // warning 메시지 호출
+            warning();
             return;
         }
-
+    
         const nextCardNumber = cards.length > 0 ? Math.max(...cards.map(c => c.number)) + 1 : 1;
-
+    
         const newCard = {
             number: nextCardNumber,
             name: newProductName,
             quantity: parseInt(newProductQuantity, 10) || 0,
             cost: parseInt(newProductCost, 10) || 0,
         };
-
-        setCards(prevCards => [...prevCards, newCard]);
-        success();  // 성공 메시지 호출
-        handleCancel();
+    
+        try {
+            const response = await fetch("http://localhost:8080/cards/add", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newCard),
+                credentials: "include",  // 서버에서 쿠키 및 인증 정보를 포함하도록 설정
+            });
+    
+            if (response.ok) {
+                const savedCard = await response.json();
+                setCards(prevCards => [...prevCards, savedCard]);
+                success();
+                handleCancel();
+            } else {
+                console.error("Failed to add card");
+                error();  // Use the global error function
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            error();  // Use the global error function
+        }
     };
+    
 
-    // 카드 선택 또는 선택 해제 처리
+  
     const selectCard = (number) => {
         setSelectedCards(prevSelectedCards => {
             if (prevSelectedCards.includes(number)) {
@@ -100,7 +121,7 @@ function Category() {
         <>
             {contextHolder}  {/* contextHolder를 JSX 상위에 배치 */}
             <div className="card-section">
-                <h2 class = 'title'>모두의 주문</h2>
+                <h2 className = 'title'>모두의 주문</h2>
                 <div className='card-header'>
                     <h4>카테고리</h4>
                     <Button type="text" className="add-btn" onClick={addCard}>추가</Button>
