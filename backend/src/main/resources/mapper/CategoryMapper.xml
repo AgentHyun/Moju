@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CategoryMapper">
+
+    <insert id="insertCategory" parameterType="com.example.demo.card.dto.Category">
+        INSERT INTO Categories (user_id, category_name)
+        VALUES (#{userId}, #{categoryName});
+    </insert>
+    <delete id="deleteCategoryByName" parameterType="String">
+        DELETE FROM Categories
+        WHERE category_name = #{categoryName};
+    </delete>
+<select id="getCategoriesByUserId" parameterType="int" resultType="com.example.demo.card.dto.Category">
+        SELECT category_name
+        FROM Categories
+        WHERE category_id = 3;
+    </select>
+
+<select id="getCategoryById" parameterType="map" resultType="com.example.demo.card.dto.Category">
+    SELECT category_name
+    FROM Categories
+    WHERE user_id = #{userId} AND category_id = #{categoryId}
+</select>
+
+</mapper>
